@@ -8,6 +8,13 @@ Vue.filter('to-lowercase', function(value){
     return value.toLowerCase();
 });
 
+//全局mixin
+Vue.mixin({
+    created(){
+        console.log('Global Mixin - Created Hook');
+    }
+});
+
 new Vue({
   el: '#app',
   render: h => h(App)
