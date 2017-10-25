@@ -4,6 +4,10 @@ import App from './App.vue'
 //全局filters
 //Vue.filter('to-lowercase');
 
+Vue.filter('to-lowercase', function(value){
+    return value.toLowerCase();
+});
+
 new Vue({
   el: '#app',
   render: h => h(App)
