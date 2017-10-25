@@ -24,13 +24,6 @@
                 return value.toUpperCase();
             }
         },
-        computed: {
-            filteredFruits(){
-                return this.fruits.filter((element) => {
-                    return element.match(this.filterText);
-                });
-            }
-        },
         components: {
             appList: List
         }
