@@ -5,22 +5,18 @@
                 <h1>Filters & Mixins</h1>
                 <p>{{ text | toUppercase | to-lowercase }}</p>
                 <hr>
-                <input type="text" v-model="filterText">
-                <ul>
-                    <li v-for="item in filteredFruits">{{item}}</li>
-                </ul>
+                <app-list></app-list>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import List from './List.vue';
     export default {
         data(){
             return {
-                text: 'hello',
-                fruits: ['Apple', 'Bannana', 'Mnago', 'Melon'],
-                filterText: ''
+                text: 'hello'
             }
         },
         filters: {
@@ -34,6 +30,9 @@
                     return element.match(this.filterText);
                 });
             }
+        },
+        components: {
+            appList: List
         }
     }
 </script>
