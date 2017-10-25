@@ -8,6 +8,10 @@ Vue.filter('to-lowercase', function(value){
     return value.toLowerCase();
 });
 
+Vue.filter('calculateLength', (value) => {
+    return value + '(' + value.length + ')';
+})
+
 //全局mixin
 Vue.mixin({
     created(){

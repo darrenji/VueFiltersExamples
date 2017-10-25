@@ -11,6 +11,15 @@
                 </ul>
                 <hr>
                 <app-list></app-list>
+                
+                <hr>
+                <p>{{ 'Some Text' | reverse}}</p>
+                <hr>
+                <p>{{ 'Test' | calculateLength}}</p>
+                <hr>
+                <p>{{ reversed }}</p>
+                <p>{{ calculateLength }}</p>
+                <hr>
             </div>
         </div>
     </div>
@@ -19,21 +28,33 @@
 <script>
     import List from './List.vue';
     import { fruitMixin } from './fruitMixin';
+    import { lengthAwareMixin } from './lengthAwareMixin';
     export default {
-        mixins: [fruitMixin],
+        mixins: [fruitMixin,lengthAwareMixin],
         data(){
             return {
-                text: 'hello'
+                text: 'hello',
+                firstText: 'Some Text',
+                secondText: 'Darren'
             }
         },
         filters: {
             toUppercase(value){
                 return value.toUpperCase();
+            },
+            reverse(value){
+                return value.split("").reverse().join("");
             }
         },
         components: {
             appList: List
+        },
+        computed: {
+            reversed(){
+                return this.firstText.split("").reverse().join("");
+            }
         }
+        
     }
 </script>
 
